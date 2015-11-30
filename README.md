@@ -1,7 +1,7 @@
 # wBSRM
 A monitor application based on environmental factor weight with TF-IDF algorithm and weighted naive Bayesian classifier.
 
-(It's a initial version of this tool)
+(It's a initial version of this application)
 
 wBSRM Description
 
@@ -21,3 +21,20 @@ This application has a total of 20 classes and interfaces, including five interf
 *	Module calculating P(ci|X): With priori probabilityiand the posterior probability P(X|ci), P(ci|X) can be calculated: class TFIDFComputePCiX, with classes computeAftProC0or computeAftProC1together to achieve P(ci|X);
 *	Module recording runtime information: Class TFIDFUserBean, class TFIDFWebServiceBean and class TFIDFComputeTimeare defined for runtime recording various parts of computation to achieve experimental analysis.
 *	TFIDFMain is the main class, which is to achieve a flow sequence of the entire and UI design.
+
+When you perform the program you can see the UI of this application :
+
+*	Button-“Open_UsrList” is used to open client side data and return the path for subsequent program；
+*	Button-“Open_WSList” is used to open server side data of web service and return the path for subsequent program；
+*	Button-“Open_TPInfo”is used to open QoS data of throughout and return the path for subsequent program；
+*	Button-“Open_RTInfo”is used to open QoS data of response time and return the path for subsequent program；
+*	Button-“Out_Path”is used to specify the output path of theexperimental statistical data;
+*	TextField-“To Input Predefine BETA:”is used to read pre-defined parameter β；
+*	TextField-“To Input Standard QoS_VALUE:”is used to read pre-defined QoS properties.
+
+Principal Contributors
+
+Pengcheng Zhang, Researcher, pchzhang@hhu.edu.cn
+
+Zhipeng He, Student, Zhipeng_He@outlook.com
+
