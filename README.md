@@ -29,6 +29,7 @@ When you perform the program you can see the UI of this application :
 *	Button-“Open_TPInfo”is used to open QoS data of throughout and return the path for subsequent program；
 *	Button-“Open_RTInfo”is used to open QoS data of response time and return the path for subsequent program；
 *	Button-“Out_Path”is used to specify the output path of theexperimental statistical data;
+And you will see follow labelled Textfield:
 *	TextField-“To Input Predefine BETA:”is used to read pre-defined parameter β；
 *	TextField-“To Input Standard QoS_VALUE:”is used to read pre-defined QoS properties.
 
