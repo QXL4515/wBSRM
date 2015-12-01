@@ -28,10 +28,10 @@ import java.util.Map.Entry;
 import javax.swing.JFileChooser;
 
 public class TFIDF_Main {
-	// ç›®æ ‡Î²å€¼
-	private static double BETA;// = 0.4; // BETAä¸ºQoSå±æ€§æ ‡å‡†ã€‚å³è®¾ç½®çš„ä¸€ä¸ªåŸºçº¿â€”â€”æ»¡è¶³QoSè¦æ±‚çš„æ¯”ä¾‹æ•°
-								// ä¸è¿™ä¸ªåŸºçº¿ è¿›è¡Œæ¯”è¾ƒ
-	private static double QoS_VALUE;// = 8.0; // QoSå±æ€§å€¼è¦æ±‚
+	// Ä¿±ê¦ÂÖµ
+	private static double BETA;// = 0.4; // BETAÎªQoSÊôĞÔ±ê×¼¡£¼´ÉèÖÃµÄÒ»¸ö»ùÏß¡ª¡ªÂú×ãQoSÒªÇóµÄ±ÈÀıÊı
+								// ÓëÕâ¸ö»ùÏß ½øĞĞ±È½Ï
+	private static double QoS_VALUE;// = 8.0; // QoSÊôĞÔÖµÒªÇó
 	private static final int DISTANCE = 150;
 	private static final double PERSET_VALUE = 0.0;
 	// private static final int T = 1000;
@@ -42,15 +42,15 @@ public class TFIDF_Main {
 	private static String OUT_PATH = null;
 	private static ArrayList<TFIDF_UserBean> userList = new ArrayList<TFIDF_UserBean>();
 	private static ArrayList<TFIDF_WebServiceBean> webServiceList = new ArrayList<TFIDF_WebServiceBean>();
-	private static HashMap<HashMap<String, String>, Integer> ll2Num = new HashMap<HashMap<String, String>, Integer>();// è®°å½•æ‰€æœ‰å›½å®¶ç»„åˆçš„æ€»æ•°
-	private static HashMap<HashMap<String, String>, Integer> ll2C0 = new HashMap<HashMap<String, String>, Integer>();// è®°å½•æ‰€æœ‰å›½å®¶ç»„åˆçš„C0ä¸ªæ•°
-	private static HashMap<HashMap<String, String>, Integer> ll2C1 = new HashMap<HashMap<String, String>, Integer>();// è®°å½•æ‰€æœ‰å›½å®¶ç»„åˆçš„C1ä¸ªæ•°
-	private static HashMap<HashMap<String, String>, Double> ll2Wi_C0 = new HashMap<HashMap<String, String>, Double>();// è®°å½•æ‰€æœ‰å›½å®¶ç»„åˆçš„Wi_C0
-	private static HashMap<HashMap<String, String>, Double> ll2Wi_C1 = new HashMap<HashMap<String, String>, Double>();// è®°å½•æ‰€æœ‰å›½å®¶ç»„åˆçš„Wi_C1
+	private static HashMap<HashMap<String, String>, Integer> ll2Num = new HashMap<HashMap<String, String>, Integer>();// ¼ÇÂ¼ËùÓĞ¹ú¼Ò×éºÏµÄ×ÜÊı
+	private static HashMap<HashMap<String, String>, Integer> ll2C0 = new HashMap<HashMap<String, String>, Integer>();// ¼ÇÂ¼ËùÓĞ¹ú¼Ò×éºÏµÄC0¸öÊı
+	private static HashMap<HashMap<String, String>, Integer> ll2C1 = new HashMap<HashMap<String, String>, Integer>();// ¼ÇÂ¼ËùÓĞ¹ú¼Ò×éºÏµÄC1¸öÊı
+	private static HashMap<HashMap<String, String>, Double> ll2Wi_C0 = new HashMap<HashMap<String, String>, Double>();// ¼ÇÂ¼ËùÓĞ¹ú¼Ò×éºÏµÄWi_C0
+	private static HashMap<HashMap<String, String>, Double> ll2Wi_C1 = new HashMap<HashMap<String, String>, Double>();// ¼ÇÂ¼ËùÓĞ¹ú¼Ò×éºÏµÄWi_C1
 	private static double[][] rtData, tpData;
-	private static int[][] tp, rt; // è®°å½•ååé‡ã€å“åº”æ—¶é—´å¯¹åº”çš„0-1å€¼
-	private static int nC0Xl, nC1Xl, nC0, nC1;// Xl è¡¨ç¤º Xk = 1;
-												// nC0ã€nC1æŒ‡çš„æ˜¯é€šè¿‡å…ˆéªŒæ¦‚ç‡çš„nâ€”â€”å³è®¡ç®—å…ˆéªŒæ¦‚ç‡çš„åˆ†å­ã€‚
+	private static int[][] tp, rt; // ¼ÇÂ¼ÍÌÍÂÁ¿¡¢ÏìÓ¦Ê±¼ä¶ÔÓ¦µÄ0-1Öµ
+	private static int nC0Xl, nC1Xl, nC0, nC1;// Xl ±íÊ¾ Xk = 1;
+												// nC0¡¢nC1Ö¸µÄÊÇÍ¨¹ıÏÈÑé¸ÅÂÊµÄn¡ª¡ª¼´¼ÆËãÏÈÑé¸ÅÂÊµÄ·Ö×Ó¡£
 	private static double prePro_C0 = 1.0;
 	private static double prePro_C1 = 1.0;
 
@@ -280,30 +280,30 @@ public class TFIDF_Main {
 			long begin_n = 0;
 			long end_n = 0;
 			readData(USERINFORMATION_DATA_PATH, WSINFORMATION_DATA_PATH,
-					RTINFORMATION_DATA_PATH, TPINFORMATION_DATA_PATH);// è¯»å–æ–‡ä»¶æ•°æ®
-			traversalTPMatrix(userList, webServiceList, tpData);// å¤„ç†tpæ•°æ®ï¼Œå¦‚æœéœ€è¦å¤„ç†rtæ•°æ®åˆ™æŠŠäºŒç»´æ•°ç»„æ¢æˆrtdata
+					RTINFORMATION_DATA_PATH, TPINFORMATION_DATA_PATH);// ¶ÁÈ¡ÎÄ¼şÊı¾İ
+			traversalTPMatrix(userList, webServiceList, tpData);// ´¦ÀítpÊı¾İ£¬Èç¹ûĞèÒª´¦ÀírtÊı¾İÔò°Ñ¶şÎ¬Êı×é»»³Értdata
 			// System.out.println("BETA:" + BETA);
 
 			// Thread.sleep(6000);
 
 			ll2Wi_C0 = new TFIDF_ComputeWi_C0().computeWi(userList,
-					webServiceList, ll2Num, ll2C0, PERSET_VALUE);// è®¡ç®—Wi_C0
+					webServiceList, ll2Num, ll2C0, PERSET_VALUE);// ¼ÆËãWi_C0
 			ll2Wi_C1 = new TFIDF_ComputeWi_C1().computeWi(userList,
-					webServiceList, ll2Num, ll2C1, PERSET_VALUE);// è®¡ç®—Wi_C1
+					webServiceList, ll2Num, ll2C1, PERSET_VALUE);// ¼ÆËãWi_C1
 
-			double plC0 = new TFIDF_ComputePlC0().computePlCX(nC0Xl, nC0);// è®¡ç®—P
+			double plC0 = new TFIDF_ComputePlC0().computePlCX(nC0Xl, nC0);// ¼ÆËãP
 																			// c0
-			double plC1 = new TFIDF_ComputePlC1().computePlCX(nC1Xl, nC1);// è®¡ç®—P
+			double plC1 = new TFIDF_ComputePlC1().computePlCX(nC1Xl, nC1);// ¼ÆËãP
 																			// c1
 
 //			outTA.append("plC0" + plC0 + "\r\n");
 //			outTA.append("plC1" + plC1 + "\r\n");
-			outTA.append("The output data is right in the pathï¼š"+OUT_PATH + "\test_data.txt" + "\r\n");
+			outTA.append("The output data is right in the path£º"+OUT_PATH + "\test_data.txt" + "\r\n");
 
 			nC0 = 0;
 			nC1 = 0;
-			int n = 0; // å¾ªç¯ä¸­ç›®å‰ä¸ºæ­¢ çš„æ ·æœ¬æ•°é‡
-			int x = 0; // å¾ªç¯ä¸­ç›®å‰ä¸ºæ­¢ å°äºç»™å®šQoSå€¼çš„æ ·æœ¬æ•°é‡
+			int n = 0; // Ñ­»·ÖĞÄ¿Ç°ÎªÖ¹ µÄÑù±¾ÊıÁ¿
+			int x = 0; // Ñ­»·ÖĞÄ¿Ç°ÎªÖ¹ Ğ¡ÓÚ¸ø¶¨QoSÖµµÄÑù±¾ÊıÁ¿
 			double K;
 			String R0;
 			String R1;
@@ -318,9 +318,9 @@ public class TFIDF_Main {
 								end_n = System.currentTimeMillis();
 								System.out.println("begin_n: " + begin_n);
 								System.out.println("end_n: " + end_n);
-								// System.out.println("2000ä¸ªæ ·æœ¬æ‰€ç”¨æ—¶é—´"+ (end_n -
+								// System.out.println("2000¸öÑù±¾ËùÓÃÊ±¼ä"+ (end_n -
 								// begin_n));
-								outTA.append("2000ä¸ªæ ·æœ¬æ‰€ç”¨æ—¶é—´" + (end_n - begin_n)
+								outTA.append("2000¸öÑù±¾ËùÓÃÊ±¼ä" + (end_n - begin_n)
 										+ "\r\n");
 								return;
 							}
@@ -423,11 +423,11 @@ public class TFIDF_Main {
 			String RTPath, String TPPath) {
 
 		Long[] time = new Long[4];
-		// è¯»å–userListæ•°æ®
+		// ¶ÁÈ¡userListÊı¾İ
 		userList = new TFIDF_ReadUserInformationDataFromTxt(userPath)
 				.readData();
 		System.out.println("Read user information success...");
-		// è¯»å–webServiceæ•°æ®
+		// ¶ÁÈ¡webServiceÊı¾İ
 		webServiceList = new TFIDF_ReadWebServiceInformationDataFromTxt(
 				webSevicePath).readData();
 		System.out.println("Read web service information success...");
@@ -436,7 +436,7 @@ public class TFIDF_Main {
 		tpData = new double[userList.size()][webServiceList.size()];
 		rt = new int[userList.size()][webServiceList.size()];
 		tp = new int[userList.size()][webServiceList.size()];
-		// è¯»å–rtæ•°æ®
+		// ¶ÁÈ¡rtÊı¾İ
 		System.out.println("Begin to read RT matrix...");
 		time[0] = System.currentTimeMillis();
 		rtData = new TFIDF_ReadRTDataFromTxt(RTINFORMATION_DATA_PATH,
@@ -446,7 +446,7 @@ public class TFIDF_Main {
 				+ new TFIDF_ComputeTime().computeTime(time[0], time[1])
 				+ "ms...");
 
-		// è¯»å–tpæ•°æ®
+		// ¶ÁÈ¡tpÊı¾İ
 		System.out.println("Begin to read PT matrix...");
 		time[2] = System.currentTimeMillis();
 		tpData = new TFIDF_ReadTPDataFromTxt(TPINFORMATION_DATA_PATH,
@@ -500,13 +500,13 @@ public class TFIDF_Main {
 							nC0Xl++;
 							nC1Xl++;
 							c = x * 1.0 / n;
-							if (c >= BETA) { /* ä¸ºäº†æŠŠåŠŸèƒ½åˆ†ç¦»å¼€å§ */// è¾¾ä¸åˆ°QoSå€¼æ ‡å‡†çš„æ•°ç›®å ç›®å‰æ€»æ•°çš„æ¯”å€¼å¤§äºç­‰äºæˆ‘ä»¬çº¦å®šçš„ä¸´ç•Œå€¼Î²ï¼Œé‚£ä¹ˆæ˜¾ç„¶ä¸è½åœ¨c1ä¸­ã€‚
+							if (c >= BETA) { /* ÎªÁË°Ñ¹¦ÄÜ·ÖÀë¿ª°É */// ´ï²»µ½QoSÖµ±ê×¼µÄÊıÄ¿Õ¼Ä¿Ç°×ÜÊıµÄ±ÈÖµ´óÓÚµÈÓÚÎÒÃÇÔ¼¶¨µÄÁÙ½çÖµ¦Â£¬ÄÇÃ´ÏÔÈ»²»ÂäÔÚc1ÖĞ¡£
 								nC1Xl--;
 							} else {
 								nC0Xl--;
 							}
 						}
-						if (c >= BETA) { /* ä¸ºäº†æŠŠåŠŸèƒ½åˆ†ç¦»å¼€å§ */
+						if (c >= BETA) { /* ÎªÁË°Ñ¹¦ÄÜ·ÖÀë¿ª°É */
 							if (ll2C0.containsKey(ll)) {
 								ll2C0.put(ll, ((Integer) ll2C0.get(ll)) + 1);
 							} else {
@@ -534,7 +534,7 @@ public class TFIDF_Main {
 	}
 
 	public static double computePro_C0(double[][] tpData, int x, int n) {
-		// æ ¹æ®C0è®¡ç®—ä¼¼ç„¶æ¦‚ç‡ï¼Œä¸ºåé¢è®¡ç®—åéªŒæ¦‚ç‡åšå‡†å¤‡
+		// ¸ù¾İC0¼ÆËãËÆÈ»¸ÅÂÊ£¬ÎªºóÃæ¼ÆËãºóÑé¸ÅÂÊ×ö×¼±¸
 		double c = x * 1.0 / n;
 		if (c >= BETA) {
 			nC0++;
@@ -544,7 +544,7 @@ public class TFIDF_Main {
 	}
 
 	public static double computePro_C1(double[][] tpData, int x, int n) {
-		// æ ¹æ®C1è®¡ç®—ä¼¼ç„¶æ¦‚ç‡ï¼Œä¸ºåé¢è®¡ç®—åéªŒæ¦‚ç‡åšå‡†å¤‡
+		// ¸ù¾İC1¼ÆËãËÆÈ»¸ÅÂÊ£¬ÎªºóÃæ¼ÆËãºóÑé¸ÅÂÊ×ö×¼±¸
 		double c = x * 1.0 / n;
 		if (c < BETA) {
 			nC1++;
