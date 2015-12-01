@@ -18,7 +18,7 @@ And then, you can click the button “Out_Path” to choose your output path lik
 
 ![alt text](https://raw.githubusercontent.com/QXL4515/wBSRM/master/Images/Output_path.jpg)
 
-Finally ,you can see the statistical information in the path you ordered and the application interface will show like this：
+Finally ,you can input your custom β value and QoS standard value，click the button "Start_Comput", you will see the statistical information in the path you ordered and the application interface will show like this：
 
 ![alt text](https://raw.githubusercontent.com/QXL4515/wBSRM/master/Images/Final_Output.jpg)
 
