@@ -1,7 +1,7 @@
 # wBSRM
 A monitor application based on environmental factor weight with TF-IDF algorithm and weighted naive Bayesian classifier.
 
-(It's a initial version of this application)
+(It's the 1.0.0 version of this application)
 
 wBSRM Description
 
