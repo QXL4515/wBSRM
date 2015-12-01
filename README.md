@@ -24,6 +24,8 @@ This application has a total of 20 classes and interfaces, including five interf
 
 When you perform the program you can see the UI of this application :
 
+![alt text](https://raw.githubusercontent.com/QXL4515/wBSRM/master/Images/GUI.jpg)
+
 *	Button-“Open_UsrList” is used to open client side data and return the path for subsequent program；
 *	Button-“Open_WSList” is used to open server side data of web service and return the path for subsequent program；
 *	Button-“Open_TPInfo”is used to open QoS data of throughout and return the path for subsequent program；
