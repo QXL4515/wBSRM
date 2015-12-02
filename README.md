@@ -40,8 +40,10 @@ And you will see follow labelled Textfield:
   
   You should make sure that your JDK version isn't lower than 1.7.0_79;
   
-  You can run it ：
-  1、In the exlipse ;
+  To run it, you can ：
+  
+  1、Run it in the exlipse as a application;
+  
   2、Export it into a runnable JAR file and then you can double click it to run OR you can run it in the command with the command "javaw -jar ***.jar(*** is your customized jar name)".
 
 #Further Reading
