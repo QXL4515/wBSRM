@@ -1,4 +1,4 @@
-# wBSRM
+# Introduction
 A monitor application based on environmental factor weight with TF-IDF algorithm and weighted naive Bayesian classifier.
 
 (It's the 1.0.0 version of this application)
@@ -7,9 +7,7 @@ wBSRM Description
 
 The executive capacity of service-oriented system relies on the third-party services. However, such reliance would result in many uncertainties, given the complex and changeable network environment. Hence, how to assure QoS of the third-party services is very important for service-oriented system. Effective monitoring technique towards QoS, which is an important measure of third-party service quality, is necessary to ensure quality control of Web service. Current monitoring approaches do not consider the influences of environment including the position of server, user usage, and the load at runtime. Ignoring these influences, which do exist among the runtime monitoring process, may cause monitoring approaches producing wrong results. To overcome this problem, this paper proposes a novel Web Service QoS monitoring approach sensitive to environmental factors called wBSRM (weighted Bayesian Runtime Monitor) based on weighted naive Bayesian classifiers and TF-IDF (Term Frequency-Inverse Document Frequency) algorithm. Experiments are conducted based on a public data set and simulated data set. The experimental results demonstrate that wBSRM is better than previous approaches by accurately calculating environmental factor weight with TF-IDF algorithm and weighted naive Bayesian classifier.
 
-
 Implements of wBSRM：
-
 
 This application has a total of 20 classes and interfaces, including five interfaces and 15 classes, a total of 1141 lines of codes. The application can be divided into the following modules:
 
@@ -36,6 +34,9 @@ And you will see follow labelled Textfield:
 
 *	TextField-“To Input Predefine BETA:”is used to read pre-defined parameter β；
 *	TextField-“To Input Standard QoS_VALUE:”is used to read pre-defined QoS properties.
+
+#Quick Start
+
 
 Principal Contributors
 
