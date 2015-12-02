@@ -44,7 +44,7 @@ And you will see follow labelled Textfield:
   
   1、Run it in the exlipse as a application;
   
-  2、Export it into a runnable JAR file and then you can double click it to run OR you can run it in the command with the command "javaw -jar ***.jar(*** is your customized jar name)".
+  2、Export it into a runnable JAR file and then you can double click it to run OR you can run it in the command with the command "javaw -jar (Your custom jar name).jar".
 
 #Further Reading
   Pengcheng Zhang, Yuan Zhuang, Hareton Leung, Wei Song, Yu Zhou:
