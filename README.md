@@ -61,6 +61,9 @@ Finally ,you can input your custom β value and QoS standard value，click the b
 
 ![alt text](https://raw.githubusercontent.com/QXL4515/wBSRM/master/Images/Output_Data.jpg)
 
+![alt text](https://raw.githubusercontent.com/QXL4515/wBSRM/master/Images/test_Data.jpg)
+
+![alt text](https://raw.githubusercontent.com/QXL4515/wBSRM/master/Images/Yes_or_No.jpg)
 
 #Quick Start
   This application is developed in the environment that JDK1.7.0_79 and eclipse4.4.2;
