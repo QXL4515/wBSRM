@@ -298,7 +298,9 @@ public class TFIDF_Main {
 
 //			outTA.append("plC0" + plC0 + "\r\n");
 //			outTA.append("plC1" + plC1 + "\r\n");
-			outTA.append("The output data is right in the path："+OUT_PATH + "\test_data.txt" + "\r\n");
+			outTA.append("The output data is right in the path："+OUT_PATH + "\\test_data.txt" + "\r\n");
+			outTA.append("The output K_Value is right in the path："+OUT_PATH + "\\test_K.txt" + "\r\n");
+			outTA.append("The output Meet_the_requirements_or_not is right in the path："+OUT_PATH + "\\test_YorN.txt" + "\r\n");
 
 			nC0 = 0;
 			nC1 = 0;
@@ -320,8 +322,8 @@ public class TFIDF_Main {
 								System.out.println("end_n: " + end_n);
 								// System.out.println("2000个样本所用时间"+ (end_n -
 								// begin_n));
-								outTA.append("2000个样本所用时间" + (end_n - begin_n)
-										+ "\r\n");
+								outTA.append("To monitor 2000 samples costed time：" + (end_n - begin_n)
+										+ "ms\r\n");
 								return;
 							}
 							if (tpData[m][p] <= QoS_VALUE) {
